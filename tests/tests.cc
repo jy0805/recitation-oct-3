@@ -91,7 +91,7 @@ TEST_CASE("RegisterAccount Duplicate", "[ex-5]") {
 TEST_CASE("Withdrawing negative cash", "[ex-6]") {
   Atm atm;
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
-  REQUIRE_THROWS_AS(atm.DepositCash(12345678, 1234, -100),
+  REQUIRE_THROWS_AS(atm.WithdrawCash(12345678, 1234, -100),
                     std::invalid_argument);
 }
 
