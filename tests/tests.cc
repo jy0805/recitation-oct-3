@@ -80,3 +80,10 @@ TEST_CASE("CheckBalance Null ", "[ex-4]") {
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
   REQUIRE_THROWS_AS(atm.CheckBalance(67676767, 1234), std::invalid_argument);
 }
+
+TEST_CASE("RegisterAccount Duplicate", "[ex-5]") {
+  Atm atm;
+  atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
+  REQUIRE_THROWS_AS(atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30),
+                    std::invalid_argument);
+}
