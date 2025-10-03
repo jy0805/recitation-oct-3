@@ -87,3 +87,25 @@ TEST_CASE("RegisterAccount Duplicate", "[ex-5]") {
   REQUIRE_THROWS_AS(atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30),
                     std::invalid_argument);
 }
+
+TEST_CASE("Withdrawing negative cash", "[ex-6]") {
+  Atm atm;
+  atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
+  REQUIRE_THROWS_AS(atm.DepositCash(12345678, 1234, -100),
+                    std::invalid_argument);
+}
+
+TEST_CASE("Depositing cash", "[ex-7]") {
+  Atm atm;
+  atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
+  atm.DepositCash(12345678, 1234, 100);
+  REQUIRE(atm.CheckBalance(12345678, 1234) == 400.30);
+}
+
+TEST_CASE("Depositing cash", "[ex-7]") {
+  Atm atm;
+  atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
+  atm.DepositCash(12345678, 1234, 100);
+  REQUIRE_THROWS_AS(atm.PrintLedger("./ex-1.txt", 67676767, 6767),
+                    std::invalid_argument);
+}
