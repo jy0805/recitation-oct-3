@@ -102,7 +102,7 @@ TEST_CASE("Depositing cash", "[ex-7]") {
   REQUIRE(atm.CheckBalance(12345678, 1234) == 400.30);
 }
 
-TEST_CASE("Depositing cash", "[ex-7]") {
+TEST_CASE("Depositing cash", "[ex-8]") {
   Atm atm;
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
   atm.DepositCash(12345678, 1234, 100);
