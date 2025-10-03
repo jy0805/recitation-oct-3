@@ -106,6 +106,6 @@ TEST_CASE("Depositing cash", "[ex-7]") {
   Atm atm;
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
   atm.DepositCash(12345678, 1234, 100);
-  REQUIRE_THROWS_AS(atm.PrintLedger("./ex-1.txt", 67676767, 6767),
+  REQUIRE_THROWS_AS(atm.PrintLedger("./ex-7.txt", 67676767, 6767),
                     std::invalid_argument);
 }
